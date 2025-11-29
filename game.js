@@ -182,18 +182,18 @@ function initBoard() {
             const tile = document.createElement("div");
             tile.classList.add("tile");
 
-            tile.style.backgroundImage = `url('assets/ground_01.png')`;
+            tile.style.backgroundImage = `url('ground_01.png')`;
 
             // ⭐ กำแพงแดงต้องใส่กลับเข้ามา
             if (MAP[r][c] === 1) {
-                tile.style.backgroundImage = `url('assets/block_01.png')`;
+                tile.style.backgroundImage = `url('block_01.png')`;
             }
 
             // ⭐ crate แบบ random
             // ⭐ crate แบบ random
 if (MAP[r][c] === 2 || MAP[r][c] === 3) {
     const randomCrate = CRATES[Math.floor(Math.random() * CRATES.length)];
-    tile.style.backgroundImage = `url('assets/${randomCrate}')`;
+    tile.style.backgroundImage = `url('${randomCrate}')`;
 }
 
 
@@ -218,7 +218,7 @@ if (MAP[r][c] === 2 || MAP[r][c] === 3) {
 ==================================== */
 function placePlayer() {
     player.el = document.createElement("img");
-    player.el.src = "assets/player_03.png";
+    player.el.src = "player_03.png";
     player.el.classList.add("player");
 
     updatePlayerPosition();
@@ -281,7 +281,7 @@ function turnRight() {
 function placeCoinsFromStage() {
     stageCoins.forEach(pos => {
         const coin = document.createElement("img");
-        coin.src = "assets/environment_11.png";
+        coin.src = "environment_11.png";
         coin.classList.add("coin");
 
         const offX = TILE_SIZE/2 - 20;
