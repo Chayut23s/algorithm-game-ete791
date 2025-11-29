@@ -3,11 +3,11 @@
 ==================================== */
 let currentStage = 1;
 const CRATES = [
-    "crate_22.png",
-    "crate_23.png",
-    "crate_24.png",
-    "crate_25.png",
-    "crate_26.png"
+    "./crate_22.png",
+    "./crate_23.png",
+    "./crate_24.png",
+    "./crate_25.png",
+    "./crate_26.png"
 ];
 
 const STAGES = {
@@ -59,7 +59,7 @@ const STAGES = {
         [1,0,0,0,0,0,1],
         [1,1,1,1,1,1,1]
     ]
-}
+},
 
     /*
     // ⭐ Stage 4 – Forest of Crates
@@ -182,11 +182,11 @@ function initBoard() {
             const tile = document.createElement("div");
             tile.classList.add("tile");
 
-            tile.style.backgroundImage = `url('ground_01.png')`;
+            tile.style.backgroundImage = `url('./ground_01.png')`;
 
             // ⭐ กำแพงแดงต้องใส่กลับเข้ามา
             if (MAP[r][c] === 1) {
-                tile.style.backgroundImage = `url('block_01.png')`;
+                tile.style.backgroundImage = `url('./block_01.png')`;
             }
 
             // ⭐ crate แบบ random
@@ -218,7 +218,7 @@ if (MAP[r][c] === 2 || MAP[r][c] === 3) {
 ==================================== */
 function placePlayer() {
     player.el = document.createElement("img");
-    player.el.src = "player_03.png";
+    player.el.src = "./player_03.png";
     player.el.classList.add("player");
 
     updatePlayerPosition();
@@ -281,7 +281,7 @@ function turnRight() {
 function placeCoinsFromStage() {
     stageCoins.forEach(pos => {
         const coin = document.createElement("img");
-        coin.src = "environment_11.png";
+        coin.src = "./environment_11.png";
         coin.classList.add("coin");
 
         const offX = TILE_SIZE/2 - 20;
