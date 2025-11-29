@@ -1,0 +1,414 @@
+/* ==============================
+   GLOBAL STYLE
+============================== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #d9f2ff;
+    font-family: "Prompt", sans-serif;
+    user-select: none;
+}
+
+.title {
+    text-align: center;
+    font-size: 38px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #0b3c60;
+    font-weight: bold;
+}
+
+/* ==============================
+   GAME LAYOUT
+============================== */
+.game-wrapper {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+}
+
+/* ==============================
+   BOARD AREA
+============================== */
+.board {
+    width: 448px;        /* 64px x 7 tiles */
+    height: 448px;
+    background: #ffffffaa;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
+
+    display: grid;
+    grid-template-columns: repeat(7, 64px);
+    grid-template-rows: repeat(7, 64px);
+    gap: 0;
+    position: relative;
+}
+
+.tile {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ==============================
+   PLAYER
+============================== */
+.player {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    transition: 0.25s;
+}
+
+/* ==============================
+   SIDE PANEL UI
+============================== */
+.panel {
+    width: 320px;     /* เดิม 340 ลดลงเล็กน้อย */
+    padding: 20px;    /* เดิม 25px */
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 6px 16px rgba(0,0,0,0.18);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;        /* เพิ่มช่องไฟรวม */
+}
+
+
+.panel h2 {
+    margin: 10px 0;
+    color: #004f7a;
+}
+
+/* ==============================
+   BLOCK BUTTONS
+============================== */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.cmd-btn {
+    padding: 10px 18px;
+    background: #6cb7ff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.2s;
+}
+.cmd-btn:hover {
+    background: #58a6f2;
+    transform: scale(1.05);
+}
+
+/* ==============================
+   COMMAND LIST
+============================== */
+.command-list {
+    width: 100%;
+    height: 140px;
+    border: 2px dashed #a5bdd1;
+    border-radius: 10px;
+    background: #f5fbff;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    box-sizing: border-box;  /* ⭐ สำคัญสุด */
+}
+
+/* ==============================
+   RUN / CLEAR BUTTONS
+============================== */
+.panel-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.run-btn {
+    padding: 12px 26px;
+    background: #35c759;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.run-btn:hover {
+    background: #28a745;
+    transform: scale(1.05);
+}
+
+.clear-btn {
+    padding: 12px 26px;
+    background: #ff4e4e;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.clear-btn:hover {
+    background: #e63b3b;
+    transform: scale(1.05);
+}
+
+/* ==============================
+   INFO AREA
+============================== */
+.info {
+    background: #e6f7ff;
+    border-radius: 12px;
+    padding: 12px;
+    color: #003d5c;
+    font-size: 15px;
+}
+
+
+.reset-btn {
+    padding: 12px 26px;
+    background: #ffa726;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 10px;
+}
+
+.reset-btn:hover {
+    background: #fb8c00;
+    transform: scale(1.05);
+}
+
+.right-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.coin {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    position: absolute;
+    pointer-events: none;
+}
+
+
+.panel-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;   /* NEW */
+}
+
+
+/* ============================
+   STATUS CARD (บนสุด)
+============================ */
+.status-card {
+    background: #e8f6ff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+    color: #004f7a;
+}
+
+.status-card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #003f62;
+}
+
+.status-card p {
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+/* ============================
+   CONTROL CARD (ส่วนควบคุม)
+============================ */
+.control-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 20px;
+
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* =====================================================
+   RESPONSIVE SYSTEM FOR ALGORITHM GAME
+   (BY CHATGPT — COMPLETE VERSION)
+===================================================== */
+
+
+/* -------------------------
+   BREAKPOINT: ≤ 1200px
+   (Tablet แนวนอน)
+--------------------------*/
+@media (max-width: 1200px) {
+
+    .game-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .panel {
+        width: 90%;
+        max-width: 480px;
+    }
+}
+
+
+
+/* -------------------------
+   BREAKPOINT: ≤ 768px
+   (Tablet / มือถือใหญ่)
+--------------------------*/
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    /* ย่อกระดาน */
+    #board {
+        transform: scale(0.85);
+        transform-origin: top center;
+        margin-bottom: -40px;
+    }
+
+    /* ปุ่มจัดสองคอลัมน์ */
+    .btn-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .cmd-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 0;
+    }
+
+    .panel-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .right-buttons {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .run-btn, .clear-btn, .reset-btn {
+        width: 100%;
+        font-size: 17px;
+        padding: 12px;
+    }
+
+    .command-list {
+        height: 120px;
+        font-size: 14px;
+    }
+}
+
+
+
+/* -------------------------
+   BREAKPOINT: ≤ 480px
+   (มือถือทั่วไป)
+--------------------------*/
+@media (max-width: 480px) {
+
+    .title {
+        font-size: 26px;
+    }
+
+    /* Board scale ต่ำลงอีก */
+    #board {
+        transform: scale(0.70);
+        margin-bottom: -70px;
+    }
+
+    /* ปุ่ม block เล็กลงนิด */
+    .cmd-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .panel {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .status-card p {
+        font-size: 14px;
+    }
+
+    .command-list {
+        height: 110px;
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .run-btn,
+    .clear-btn,
+    .reset-btn {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+
+
+/* -------------------------
+   BREAKPOINT: ≤ 380px
+   (มือถือจอเล็ก)
+--------------------------*/
+@media (max-width: 380px) {
+
+    .title {
+        font-size: 22px;
+        margin-top: 15px;
+    }
+
+    #board {
+        transform: scale(0.60);
+        margin-bottom: -95px;
+    }
+
+    .cmd-btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .command-list {
+        height: 100px;
+    }
+
+    .panel {
+        padding: 12px;
+    }
+}

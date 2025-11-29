@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Game</title>
+    <link rel="stylesheet" href="style.css">
+
+    
+    <!-- SweetAlert2 CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+
+    <h1 class="title" id="stageTitle">Algorithm game – Stage 1</h1>
+
+
+    <div class="game-wrapper">
+
+        <!-- 🟦 BOARD -->
+        <div id="board" class="board"></div>
+
+        <!-- 🟧 SIDE PANEL -->
+        <div class="panel">
+
+            <!-- ⭐ STATUS CARD ใหม่ -->
+            <div class="status-card">
+                <p>🎯 เป้าหมาย: เก็บเหรียญให้ครบทั้งหมด</p>
+                <p id="score">💰 เหรียญที่เก็บได้: 0</p>
+                <p id="runCount">🔁 จำนวนครั้งที่รันคำสั่ง: 0</p>
+            </div>
+
+            <h2>Blocks</h2>
+
+            <div class="btn-group">
+                <button class="cmd-btn" data-cmd="forward">⬆ เดินหน้า</button>
+                <button class="cmd-btn" data-cmd="left">↪ เลี้ยวซ้าย</button>
+                <button class="cmd-btn" data-cmd="right">↩ เลี้ยวขวา</button>
+                 <button class="cmd-btn repeat-btn" id="btnRepeat">🔁 ทำซ้ำ</button>
+                 <!-- <button id="btnIfElse" class="cmd-btn special">IF / ELSE</button> -->
+
+            </div>
+
+            <h2>Commands</h2>
+            <div id="command-list" class="command-list">
+                (วางคำสั่งที่นี่)
+            </div>
+
+            <div class="panel-actions">
+                <button id="btnRun" class="run-btn">▶ เริ่มทำงาน</button>
+
+                <div class="right-buttons">
+                    <button id="btnClear" class="clear-btn">🗑 ล้าง</button>
+                    <button id="btnReset" class="reset-btn">🔄 รีเซ็ต</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+    
+</body>
+</html>
